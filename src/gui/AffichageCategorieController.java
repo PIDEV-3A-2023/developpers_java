@@ -27,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import services.ServiceCat ;
@@ -55,6 +56,8 @@ public class AffichageCategorieController implements Initializable {
     ServiceCat C = new  ServiceCat();
      ObservableList<Categorie> obList;
     public static Categorie cat ; 
+    @FXML
+    private ImageView logo;
 
     /**
      * Initializes the controller class.

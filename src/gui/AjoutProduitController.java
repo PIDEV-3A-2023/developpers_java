@@ -25,15 +25,20 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import entites.Categorie ; 
+import javafx.collections.FXCollections;
+import services.ServiceCat ; 
 
 /**
  * FXML Controller class
@@ -61,6 +66,10 @@ public class AjoutProduitController implements Initializable {
     private AnchorPane anchorePaneEl;
     @FXML
     private TextArea descriptiontv;
+    @FXML
+    private ComboBox<Categorie> comboCat;
+    ServiceCat cc = new ServiceCat();
+   
 
     /**
      * Initializes the controller class.
@@ -68,7 +77,13 @@ public class AjoutProduitController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cc = new ServiceCat();
+         ObservableList<Categorie> ListC = FXCollections.observableArrayList();
+         ListC =cc.affichagenomCat();
+        comboCat.setItems(ListC);
+        System.out.println(ListC);
     }    
+    
      int stock;
     double prix;
     @FXML
@@ -158,6 +173,11 @@ private void showAlert(String title, String message) {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 };
+    }
+
+    @FXML
+    private void select(ActionEvent event) {
+        String s =comboCat.getSelectionModel().getSelectedItem().toString() ; 
     }
 }
     

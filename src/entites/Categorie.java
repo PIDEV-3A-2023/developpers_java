@@ -75,6 +75,12 @@ public class Categorie {
     public void setDate_creation(Date date_creation) {
         this.date_creation = date_creation;
     }
+
+    public Categorie(String nom_c) {
+        this.nom_c = nom_c;
+    }
+
+    
     
     
     

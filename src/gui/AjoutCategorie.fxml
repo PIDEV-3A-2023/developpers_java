@@ -5,25 +5,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.AjoutCategorieController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutCategorieController">
    <children>
-      <Text layoutX="247.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout Categorie ">
+      <Text fill="#588c7e" layoutX="247.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout Categorie ">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
       <Label layoutX="71.0" layoutY="99.0" text="Nom " />
-      <TextField fx:id="NomTF" layoutX="151.0" layoutY="95.0" />
-      <TextArea fx:id="DescTF" layoutX="151.0" layoutY="140.0" prefHeight="101.0" prefWidth="248.0" />
+      <TextField fx:id="NomTF" layoutX="151.0" layoutY="95.0" promptText="inserez un nom " />
+      <TextArea fx:id="DescTF" layoutX="151.0" layoutY="140.0" prefHeight="101.0" prefWidth="248.0" promptText="inserez une description" />
       <Label layoutX="55.0" layoutY="182.0" text="Description" />
       <Label layoutX="48.0" layoutY="302.0" text="Date de creation " />
-      <JFXDatePicker fx:id="DateC" layoutX="151.0" layoutY="285.0" />
-      <Button fx:id="ajoubtn" layoutX="522.0" layoutY="351.0" mnemonicParsing="false" onAction="#AjouterCatHandle" text="Ajouter" />
-      <Button layoutX="522.0" layoutY="29.0" mnemonicParsing="false" onAction="#ListeCat" text="Liste " />
+      <JFXDatePicker fx:id="DateC" defaultColor="#588c7e" layoutX="151.0" layoutY="285.0" promptText="inserez une date " />
+      <Button fx:id="ajoubtn" layoutX="522.0" layoutY="351.0" mnemonicParsing="false" onAction="#AjouterCatHandle" style="-fx-background-color: #588C7E;" text="Ajouter" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="522.0" layoutY="29.0" mnemonicParsing="false" onAction="#ListeCat" style="-fx-background-color: #588C7E;" text="Liste " textAlignment="CENTER" textFill="#fffafa" />
+      <ImageView fitHeight="39.0" fitWidth="44.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/logo%20.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

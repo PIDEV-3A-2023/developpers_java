@@ -24,6 +24,7 @@ import utils.DB;
 public class ServiceCat implements IServiceCat <Categorie>  {
     
     ObservableList<Categorie>obListCat = FXCollections.observableArrayList();
+    ObservableList<Categorie>obListnom = FXCollections.observableArrayList();
       Connection conn;
     public ServiceCat() {
         conn = DB.getInstance().getConnection();
@@ -77,6 +78,33 @@ public class ServiceCat implements IServiceCat <Categorie>  {
         }
         return obListCat ;
     }
+     @Override
+    public ObservableList<Categorie> affichagenomCat() {
+       String req="SELECT nom_c FROM categorie_p ";
+         List<Categorie>listnomCat = new ArrayList<>();
+        
+        
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(req);
+            
+            while(rs.next()) {
+               
+                String nom_c = rs.getString("nom_c"); 
+                Categorie C = new Categorie (nom_c);
+              
+               obListnom.add(C);
+
+              
+            }   
+            
+            
+            
+        }catch(Exception ex) {
+            System.out.println("exception ="+ex.getMessage() );
+        }
+        return obListnom ;
+    }
 
     @Override
     public void supprimercat(Categorie C) {
@@ -124,6 +152,9 @@ public class ServiceCat implements IServiceCat <Categorie>  {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
+
+    
   
     
      

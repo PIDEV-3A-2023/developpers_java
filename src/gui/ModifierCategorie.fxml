@@ -5,14 +5,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorPaneE1" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.ModifierCategorieController">
+<AnchorPane id="AnchorPane" fx:id="anchorPaneE1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierCategorieController">
    <children>
-      <Text layoutX="267.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Categorie ">
+      <Text fill="#588c7e" layoutX="219.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Categorie ">
          <font>
             <Font size="19.0" />
          </font>
@@ -23,6 +24,11 @@
       <Label layoutX="75.0" layoutY="202.0" text="Description" />
       <Label layoutX="68.0" layoutY="322.0" text="Date de creation " />
       <JFXDatePicker fx:id="DateC" layoutX="171.0" layoutY="305.0" />
-      <Button fx:id="modifbtn" layoutX="531.0" layoutY="352.0" mnemonicParsing="false" onAction="#ModifierCatHandle" text="Modifier" />
+      <Button fx:id="modifbtn" layoutX="531.0" layoutY="352.0" mnemonicParsing="false" onAction="#ModifierCatHandle" style="-fx-background-color: #588C7E;" text="Modifier" textFill="WHITE" />
+      <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/logo%20.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
