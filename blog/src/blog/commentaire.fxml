@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="578.0" prefWidth="1043.0" style="-fx-background-image: C:\Users\DELL\Desktop\Pictures;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blog.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="621.0" fitWidth="1061.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="276.0" layoutY="25.0" text="Nom" textFill="WHITE" />
+      <Label layoutX="512.0" layoutY="25.0" text="Prenom" textFill="WHITE" />
+      <Label layoutX="279.0" layoutY="88.0" text="CIN" textFill="WHITE" />
+      <Button layoutX="957.0" layoutY="523.0" mnemonicParsing="false" onAction="#AfficherLivreur" style="-fx-label-padding: 9; -fx-background-color: #F0882F; -fx-border-radius: 15; -fx-background-radius: 15; -fx-cursor: hand;" text="Afficher" />
+      <Button layoutX="533.0" layoutY="173.0" mnemonicParsing="false" onAction="#AjouterLivreur" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Ajouter" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font></Button>
+      <TableView fx:id="tablec" layoutX="275.0" layoutY="260.0" onMouseClicked="#selectionner" prefHeight="248.0" prefWidth="708.0">
+        <columns>
+          <TableColumn fx:id="idt" minWidth="0.0" prefWidth="39.0" text="id" />
+          <TableColumn fx:id="nomt" minWidth="0.0" prefWidth="159.0" text="Nom" />
+            <TableColumn fx:id="prenomt" minWidth="0.0" prefWidth="126.0" text="Prenom" />
+            <TableColumn fx:id="cint" prefWidth="116.0" text="CIN" />
+            <TableColumn fx:id="salairet" minWidth="0.0" prefWidth="126.0" text="Salaire" />
+            <TableColumn fx:id="zonet" prefWidth="139.99993896484375" text="Zone géographique" />
+        </columns>
+      </TableView>
+      <TextField fx:id="idsup" layoutX="397.0" layoutY="520.0" prefHeight="25.0" prefWidth="55.0" />
+      <TextField fx:id="tfsearch" layoutX="865.0" layoutY="21.0" onKeyReleased="#searchkey" promptText="chercher" />
+      <Button layoutX="942.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#tributton" text="trier" />
+      <TextField fx:id="tfnom" layoutX="271.0" layoutY="46.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <Label layoutX="279.0" layoutY="149.0" text="Zone géographique" textFill="WHITE" />
+      <Label layoutX="515.0" layoutY="88.0" text="Salaire" textFill="WHITE" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="832.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-google-web-recherche-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="273.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-supprimer-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="498.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-ajouter-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="498.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-approuver-et-mettre-à-jour-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="902.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-trier-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfprenom" layoutX="506.0" layoutY="46.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tfzone" layoutX="271.0" layoutY="170.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tfcin" layoutX="271.0" layoutY="106.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tfsalaire" layoutX="506.0" layoutY="106.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <Button layoutX="529.0" layoutY="215.0" mnemonicParsing="false" onAction="#ModifierLivreur" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Modifier" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="306.0" layoutY="518.0" mnemonicParsing="false" onAction="#SupprimerLivreur" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Supprimer" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

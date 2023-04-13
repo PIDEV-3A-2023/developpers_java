@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="578.0" prefWidth="1043.0" style="-fx-background-image: C:\Users\DELL\Desktop\Pictures;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blog.FXMLBlogController">
+   <children>
+      <ImageView fitHeight="649.0" fitWidth="1043.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="276.0" layoutY="25.0" text="Date" textFill="WHITE" />
+      <Label layoutX="279.0" layoutY="88.0" text="Titre" textFill="WHITE" />
+      <Button layoutX="957.0" layoutY="523.0" mnemonicParsing="false" onAction="#AfficherBlog" style="-fx-label-padding: 9; -fx-background-color: #F0882F; -fx-border-radius: 15; -fx-background-radius: 15; -fx-cursor: hand;" text="Afficher" />
+      <Button layoutX="536.0" layoutY="46.0" mnemonicParsing="false" onAction="#AjouterBlog" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Ajouter" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font></Button>
+      <TextField fx:id="idsup" layoutX="397.0" layoutY="520.0" prefHeight="25.0" prefWidth="55.0" />
+      <TextField fx:id="tfsearch" layoutX="865.0" layoutY="21.0" onKeyReleased="#searchkey" promptText="chercher" />
+      <Button layoutX="733.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#tributton" text="trier" />
+      <Label layoutX="279.0" layoutY="149.0" text="Description" textFill="WHITE" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="832.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-google-web-recherche-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="273.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-supprimer-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="499.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-ajouter-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="499.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-approuver-et-mettre-à-jour-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="771.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-trier-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfdescription" layoutX="271.0" layoutY="170.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tftitre" layoutX="271.0" layoutY="106.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <Button layoutX="536.0" layoutY="99.0" mnemonicParsing="false" onAction="#ModifierBlog" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Modifier" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="306.0" layoutY="518.0" mnemonicParsing="false" onAction="#SupprimerBlog" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Supprimer" textFill="#00fadf">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="stat" layoutX="734.0" layoutY="476.0" mnemonicParsing="false" text="stat" />
+      <DatePicker fx:id="datec" layoutX="274.0" layoutY="48.0" />
+      <TableView fx:id="tablec" layoutX="278.0" layoutY="253.0" onMouseClicked="#selectionner" prefHeight="248.0" prefWidth="441.0">
+         <columns>
+            <TableColumn fx:id="idt" minWidth="0.0" prefWidth="39.0" text="id" />
+            <TableColumn fx:id="datet" minWidth="0.0" prefWidth="159.0" text="date" />
+            <TableColumn fx:id="titret" minWidth="0.0" prefWidth="75.0" text="titre" />
+            <TableColumn fx:id="descriptiont" prefWidth="167.0" text="description" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
