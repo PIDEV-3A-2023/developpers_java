@@ -18,6 +18,8 @@ import java.util.Optional;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,9 +30,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 import services.ServiceProduit;
 import javafx.stage.Stage;
@@ -61,6 +65,10 @@ public class AffichageProduitController implements Initializable {
     @FXML
     private TableColumn<String, Integer> ColID;
  ObservableList<Produit> obList;
+    @FXML
+    private TextField recherche;
+    @FXML
+    private Button triP;
     
     /**
      * Initializes the controller class.
@@ -287,6 +295,111 @@ ColImage.setCellValueFactory(cellData -> {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 };
+    }
+
+    @FXML
+    private void RechercheHandle(KeyEvent event) {
+         FilteredList<Produit> filteredList = new FilteredList<>(obList, b -> true);
+
+        recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (recherche.getText().isEmpty()) {
+
+                addButtonModifToTable();
+                addButtonDeleteToTable();
+
+            }
+            filteredList.setPredicate(reclamation -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    btn = new Button("Modifier");
+                    btnSupprimer = new Button("Supprimer");
+
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+ if (String.valueOf(reclamation.getNom_p()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+
+                    return true;
+                } else if (String.valueOf(reclamation.getPrix_p()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+
+                    return true;
+                } else if (String.valueOf(reclamation.getStock()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+
+                    return true;
+                    
+                    
+                }
+                else {
+                    btn = new Button("Modifier");
+                    btnSupprimer = new Button("Supprimer");
+                    return false;
+                }
+
+            });
+
+        });
+        SortedList<Produit> sortedData = new SortedList<>(filteredList);
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+    }
+
+    @FXML
+    private void triePrix(ActionEvent event) {
+            a = new ServiceProduit();
+        obList = a.affichageProduitTrieer ();
+      
+        ColID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNom.setCellValueFactory(new PropertyValueFactory<>("nom_p"));
+        colPrix.setCellValueFactory(new PropertyValueFactory<>("prix_p"));
+        ColImage.setCellValueFactory(new PropertyValueFactory<>("image_p"));
+                
+
+        addButtonModifToTable();
+        addButtonDeleteToTable();
+         // First, create a single ImageView object to reuse for each cell
+ImageView imageView = new ImageView();
+imageView.setFitWidth(50);
+imageView.setFitHeight(50);
+
+
+// Then, set up the cell value factory to return the ImageView for each cell
+
+
+
+// Then, set up the cell value factory to return the ImageView for each cell
+
+ 
+  String destDir = "file:///C:/xampp/htdocs/img/";
+ColImage.setCellValueFactory(cellData -> {
+    Produit produit = cellData.getValue();
+    String imagePath = produit.getImage_p();
+    if (imagePath != null) {
+        try {
+            Image image = new Image(destDir+imagePath);
+            if (image.isError()) {
+                System.err.println("Error loading image from URL: " + imagePath);
+                return null;
+            }
+            // Update the image property of the reusable ImageView
+            imageView.setImage(image);
+            return new SimpleObjectProperty<>(imageView);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            return null;
+        }
+    } else {
+        // If the image path is null, return null to display an empty cell
+        return null;
+    }
+});
+
+
+    // Load the data from the CompetitionService into the TableView
+   
+        tableView.setItems(obList);
+
+        addButtonModifToTable();
     }
 
   

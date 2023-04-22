@@ -54,6 +54,39 @@ ObservableList<Produit>obListProd = FXCollections.observableArrayList();
         }
         
     }
+      @Override
+    public ObservableList<Produit> affichageProduitTrieer() {
+         String req= "SELECT * FROM produit order by prix_p DESC";
+         List<Produit>listProd = new ArrayList<>();
+        
+        
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(req);
+            
+            while(rs.next()) {
+                int id= rs.getInt("id");
+                String nom_p = rs.getString("nom_p");
+                String image_p = rs.getString("image_p");
+                double prix_p = rs.getDouble("prix_p");
+                int stock = rs.getInt("stock");
+                String description = rs.getString("description_p");
+                int idcat_p_id = rs.getInt("idcat_p_id");
+                
+                Produit p = new Produit(id,nom_p,image_p,"null",description,prix_p,stock,idcat_p_id);
+              
+                obListProd.add(p);
+
+              
+            }   
+            
+            
+            
+        }catch(Exception ex) {
+            System.out.println("exception ="+ex.getMessage() );
+        }
+        return obListProd ;
+    }
 
     @Override
    public ObservableList<Produit> affichageProduit() {
@@ -155,5 +188,7 @@ ObservableList<Produit>obListProd = FXCollections.observableArrayList();
        }
                    return count>0;//  0 > 0 : false 
     }
+
+  
     
 }

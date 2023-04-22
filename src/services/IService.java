@@ -19,5 +19,6 @@ public interface IService<T> {
     public Produit getProduit(int id);
     public void modifierProduit(Produit p);
     public boolean exists(String name);
+     public List<Produit>affichageProduitTrieer ();
     
 }

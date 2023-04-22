@@ -17,6 +17,7 @@ public interface IServiceCat <T> {
     public Categorie getcat(int id);
     public void modifierCat(Categorie C);
     public boolean existsCat(String name);
-     public List<Categorie>affichagenomCat();
+   
+     public Categorie getCategorieByNom(String nom_c);
     
 }

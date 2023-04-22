@@ -67,7 +67,7 @@ public class AjoutProduitController implements Initializable {
     @FXML
     private TextArea descriptiontv;
     @FXML
-    private ComboBox<Categorie> comboCat;
+    private ComboBox<String> comboCat;
     ServiceCat cc = new ServiceCat();
    
 
@@ -76,16 +76,58 @@ public class AjoutProduitController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ObservableList<String> list = FXCollections.observableArrayList();
+ServiceCat sc = new ServiceCat();
+
+ObservableList<Categorie> obList = sc.affichageCat();
+
+comboCat.getItems().clear();
+
+for (Categorie nameCat : obList) {
+    list.add(nameCat.getNom_c());
+}
+
+comboCat.setItems(list);
+      //GET CATREGORIES LISTE DEROULANTE FOR JOIN !
+//        ObservableList<String> list = FXCollections.observableArrayList();
+//        ServiceCat sc = new ServiceCat();
+//
+//        ObservableList<Categorie> obList = FXCollections.observableArrayList();
+//        obList = sc.affichageCat();
+//
+//       comboCat.getItems().clear();
+//
+//        for (Categorie nameCat : obList) {
+//            System.out.println("hii");
+//            list.add(nameCat.getNom_c());
+//            System.out.println("hii" + list);
+//
+//            comboCat.setItems(list);
+
+        }
         // TODO
-        cc = new ServiceCat();
-         ObservableList<Categorie> ListC = FXCollections.observableArrayList();
-         ListC =cc.affichagenomCat();
-        comboCat.setItems(ListC);
-        System.out.println(ListC);
-    }    
     
      int stock;
     double prix;
+    
+    public int getCategoryId(String categoryName) {
+    ServiceCat sc = new ServiceCat();
+    ObservableList<Categorie> obList = sc.affichageCat();
+
+    for (Categorie category : obList) {
+        if (category.getNom_c().equals(categoryName)) {
+            return category.getId();
+        }
+    }
+
+    return -1; // Si la catégorie n'est pas trouvée, retourne -1.
+}
+      @FXML
+    private void select(ActionEvent event) {
+      String categoryName = comboCat.getSelectionModel().getSelectedItem().toString();
+    int categoryId = getCategoryId(categoryName);
+    System.out.println("Selected category ID: " + categoryId);
+    }
     @FXML
     private void AjouterProduitHandle(ActionEvent event) {
         
@@ -108,7 +150,9 @@ try {
         Matcher matcher = pattern.matcher(prixtv.getText());
         
         if (matcher.matches()) {
-            Produit produit = new Produit(nom, filePath, "null", description, prix, stock, 2);
+              ServiceCat sc = new ServiceCat();
+            Categorie categorie = sc.getCategorieByNom(comboCat.getSelectionModel().getSelectedItem().toString());
+            Produit produit = new Produit(nom, filePath, "null", description, prix, stock,  categorie.getId());
             sp.ajouterProduit(produit);
             showAlert("Produit ajouté", "Produit ajouté avec succès");
         } else {
@@ -175,10 +219,7 @@ private void showAlert(String title, String message) {
                 };
     }
 
-    @FXML
-    private void select(ActionEvent event) {
-        String s =comboCat.getSelectionModel().getSelectedItem().toString() ; 
-    }
+  
 }
     
 

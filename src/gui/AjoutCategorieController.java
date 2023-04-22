@@ -64,7 +64,6 @@ public class AjoutCategorieController implements Initializable {
           else if (Description.isEmpty()) {
                showAlert("description  obligatoire", "description doit être non vide");
           }
-    
      else {
        
             Categorie Cat= new Categorie (Nom,Description,date  );

@@ -79,32 +79,21 @@ public class ServiceCat implements IServiceCat <Categorie>  {
         return obListCat ;
     }
      @Override
-    public ObservableList<Categorie> affichagenomCat() {
-       String req="SELECT nom_c FROM categorie_p ";
-         List<Categorie>listnomCat = new ArrayList<>();
-        
-        
-        try{
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery(req);
-            
-            while(rs.next()) {
-               
-                String nom_c = rs.getString("nom_c"); 
-                Categorie C = new Categorie (nom_c);
-              
-               obListnom.add(C);
-
-              
-            }   
-            
-            
-            
-        }catch(Exception ex) {
-            System.out.println("exception ="+ex.getMessage() );
+   public Categorie getCategorieByNom(String nom_c) {
+    String req = "SELECT * FROM categorie_p WHERE nom_c = ?";
+    Categorie categorie = null;
+    try {
+        PreparedStatement ps = conn.prepareStatement(req);
+        ps.setString(1, nom_c);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            categorie = new Categorie(rs.getInt("id"), rs.getString("nom_c"));
         }
-        return obListnom ;
+    } catch (SQLException ex) {
+        System.out.println("Erreur lors de la récupération de la catégorie : " + ex.getMessage());
     }
+    return categorie;
+}
 
     @Override
     public void supprimercat(Categorie C) {
@@ -151,6 +140,7 @@ public class ServiceCat implements IServiceCat <Categorie>  {
     public boolean existsCat(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
    
 

@@ -35,6 +35,11 @@ public class Categorie {
         this.date_creation = date_creation;
     }
 
+    public Categorie(int id, String nom_c) {
+        this.id = id;
+        this.nom_c = nom_c;
+    }
+
     @Override
     public String toString() {
         return "Categorie{" + "id=" + id + ", nom_c=" + nom_c + ", description_cat=" + description_cat + ", date_creation=" + date_creation + '}';
