@@ -28,7 +28,7 @@ public class Produit {
         this.id = id;
         this.nom_p = nom_p;
         this.image_p = image_p;
-      
+        this.image_qr_code = image_qr_code ;
         this.description_p = description_p;
         this.prix_p = prix_p;
         this.stock = stock;
@@ -37,6 +37,7 @@ public class Produit {
     public Produit(String nom_p, String image_p, String image_qr_code, String description_p, double prix_p, int stock,int idcat_p_id) {
         this.nom_p = nom_p;
         this.image_p = image_p;
+        this.image_qr_code = image_qr_code ;
         this.idcat_p_id = idcat_p_id;
         this.description_p = description_p;
         this.prix_p = prix_p;
@@ -46,6 +47,7 @@ public class Produit {
         this.nom_p = nom_p;
         this.id=id;
         this.image_p = image_p;
+        this.image_qr_code = image_qr_code ;
         this.idcat_p_id = idcat_p_id;
         this.description_p = description_p;
         this.prix_p = prix_p;
@@ -61,6 +63,7 @@ public class Produit {
         this.stock = stock;
         this.idcat_p_id = idcat_p_id;
     }
+    
 
     
 
@@ -129,6 +132,10 @@ public class Produit {
     public void setImage_qr_code(String image_qr_code) {
         this.image_qr_code = image_qr_code;
     }
+
+   
+
+  
 
     public int getIdcat_p_id() {
         return idcat_p_id;

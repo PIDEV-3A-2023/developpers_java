@@ -4,6 +4,19 @@
  * and open the template in the editor.
  */
 package gui;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.Result;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeWriter;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,8 +50,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import entites.Categorie ; 
+import java.awt.image.BufferedImage;
+import java.nio.file.FileSystems;
 import javafx.collections.FXCollections;
+import javax.imageio.ImageIO;
 import services.ServiceCat ; 
+import java.util.UUID;
+import java.nio.file.Paths ; 
 
 /**
  * FXML Controller class
@@ -88,27 +106,28 @@ for (Categorie nameCat : obList) {
 }
 
 comboCat.setItems(list);
-      //GET CATREGORIES LISTE DEROULANTE FOR JOIN !
-//        ObservableList<String> list = FXCollections.observableArrayList();
-//        ServiceCat sc = new ServiceCat();
-//
-//        ObservableList<Categorie> obList = FXCollections.observableArrayList();
-//        obList = sc.affichageCat();
-//
-//       comboCat.getItems().clear();
-//
-//        for (Categorie nameCat : obList) {
-//            System.out.println("hii");
-//            list.add(nameCat.getNom_c());
-//            System.out.println("hii" + list);
-//
-//            comboCat.setItems(list);
+
 
         }
         // TODO
     
      int stock;
     double prix;
+public void genererQRCode(String text, String fileName) throws Exception {
+    // Création de l'objet QR code
+    QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 350, 350);
+
+    // Convertir le BitMatrix en image
+    BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+
+    // Enregistrer l'image dans le dossier htdocs
+    File file = new File("C:/xampp/htdocs/img/" + fileName);
+    ImageIO.write(bufferedImage, "png", file);
+}
+
+
+
     
     public int getCategoryId(String categoryName) {
     ServiceCat sc = new ServiceCat();
@@ -129,7 +148,7 @@ comboCat.setItems(list);
     System.out.println("Selected category ID: " + categoryId);
     }
     @FXML
-    private void AjouterProduitHandle(ActionEvent event) {
+    private void AjouterProduitHandle(ActionEvent event) throws IOException, Exception {
         
           String nom = nametv.getText();
 String description = descriptiontv.getText();
@@ -150,10 +169,18 @@ try {
         Matcher matcher = pattern.matcher(prixtv.getText());
         
         if (matcher.matches()) {
-              ServiceCat sc = new ServiceCat();
+             ServiceCat sc = new ServiceCat();
             Categorie categorie = sc.getCategorieByNom(comboCat.getSelectionModel().getSelectedItem().toString());
-            Produit produit = new Produit(nom, filePath, "null", description, prix, stock,  categorie.getId());
-            sp.ajouterProduit(produit);
+
+             // Générer un nom de fichier unique pour l'image QR code
+                String fileName = "qr_" + UUID.randomUUID().toString() + ".png";
+
+                Produit produit = new Produit(nom, filePath, fileName, description, prix, stock, categorie.getId());
+                sp.ajouterProduit(produit);
+
+                // Générer le QR code pour ce produit
+                genererQRCode(produit.toString(), fileName);
+            
             showAlert("Produit ajouté", "Produit ajouté avec succès");
         } else {
             showAlert("Prix non valide", "Prix doit être valide");

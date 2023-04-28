@@ -10,29 +10,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="416.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageProduitController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageProduitController">
    <children>
-      <TableView fx:id="tableView" layoutX="18.0" layoutY="97.0" prefHeight="262.0" prefWidth="584.0">
+      <TableView fx:id="tableView" layoutX="18.0" layoutY="97.0" prefHeight="430.0" prefWidth="859.0">
         <columns>
           <TableColumn fx:id="colNom" prefWidth="83.6666259765625" text="Nom" />
           <TableColumn fx:id="colPrix" prefWidth="83.0" text="Prix" />
-            <TableColumn fx:id="ColImage" prefWidth="99.0" text="Image" />
             <TableColumn fx:id="ColID" prefWidth="38.0" text="ID" />
+            <TableColumn fx:id="ColQr" prefWidth="211.3333740234375" text="QrCode" />
+            <TableColumn fx:id="ColImage" prefWidth="177.33331298828125" text="Image" />
         </columns>
       </TableView>
-      <Button layoutX="547.0" layoutY="377.0" mnemonicParsing="false" onAction="#ajouterP" style="-fx-background-color: #588C7E;" text="Ajouter" textFill="WHITE" />
-      <Text fill="#588c7e" layoutX="213.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Poduits">
+      <Button layoutX="816.0" layoutY="551.0" mnemonicParsing="false" onAction="#ajouterP" style="-fx-background-color: #588C7E;" text="Ajouter" textFill="WHITE" />
+      <Text fill="#588c7e" layoutX="380.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Poduits">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <Button layoutX="534.0" layoutY="18.0" mnemonicParsing="false" onAction="#boutiqueShow" style="-fx-background-color: #588C7E;" text="Boutique " textFill="WHITE" />
-      <ImageView fitHeight="42.0" fitWidth="55.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="796.0" layoutY="18.0" mnemonicParsing="false" onAction="#boutiqueShow" style="-fx-background-color: #588C7E;" text="Boutique " textFill="WHITE" />
+      <ImageView fitHeight="49.0" fitWidth="68.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../utils/logo%20.png" />
          </image>
       </ImageView>
-      <TextField fx:id="recherche" layoutX="171.0" layoutY="57.0" onKeyPressed="#RechercheHandle" prefHeight="25.0" prefWidth="265.0" promptText="Rechercher" />
-      <Button fx:id="triP" layoutX="503.0" layoutY="57.0" mnemonicParsing="false" onAction="#triePrix" style="-fx-background-color: #588C7E;" text="Prix decroissant" textFill="WHITE" />
+      <TextField fx:id="recherche" layoutX="355.0" layoutY="57.0" onKeyPressed="#RechercheHandle" prefHeight="25.0" prefWidth="265.0" promptText="Rechercher" />
+      <Button fx:id="triP" layoutX="781.0" layoutY="57.0" mnemonicParsing="false" onAction="#triePrix" style="-fx-background-color: #588C7E;" text="Prix decroissant" textFill="WHITE" />
+      <Button fx:id="exportPDF" layoutX="741.0" layoutY="551.0" mnemonicParsing="false" onAction="#exportPDFAction" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #588C7E;" text="PDF" textFill="WHITE" />
+      <Button layoutX="31.0" layoutY="551.0" mnemonicParsing="false" onAction="#affichageFront" style="-fx-background-color: #588C7E;" text="Boutique front" textFill="WHITE" />
    </children>
 </AnchorPane>

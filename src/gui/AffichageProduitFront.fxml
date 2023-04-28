@@ -9,26 +9,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPaneE1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageProduitFrontController">
+<AnchorPane id="AnchorPane" fx:id="anchorPaneE1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageProduitFrontController">
    <children>
-      <TableView fx:id="tableView" layoutX="20.0" layoutY="58.0" prefHeight="321.0" prefWidth="559.0">
+      <TableView fx:id="tableView" layoutX="19.0" layoutY="72.0" prefHeight="469.0" prefWidth="863.0">
          <columns>
             <TableColumn fx:id="colNom" prefWidth="147.3333740234375" text="Nom" />
             <TableColumn fx:id="colPrix" prefWidth="59.6666259765625" text="Prix" />
-            <TableColumn fx:id="ColImage" prefWidth="318.66668701171875" text="Image" />
             <TableColumn fx:id="ColID" minWidth="0.0" prefWidth="27.33331298828125" text="ID" />
+            <TableColumn fx:id="ColImage" prefWidth="318.66668701171875" text="Image" />
+            <TableColumn fx:id="QrCode" prefWidth="318.66668701171875" text="QrCode" />
          </columns>
       </TableView>
-      <Text fill="#588c7e" layoutX="219.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magasin" textAlignment="CENTER" wrappingWidth="161.56494140625">
+      <Text fill="#588c7e" layoutX="371.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magasin" textAlignment="CENTER" wrappingWidth="161.56494140625">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <Button layoutX="530.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #588C7E;" text="Panier" textFill="WHITE" />
-      <ImageView fitHeight="36.0" fitWidth="58.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="821.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: #588C7E;" text="Panier" textFill="WHITE" />
+      <ImageView fitHeight="45.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../utils/logo%20.png" />
          </image>
       </ImageView>
+      <Button layoutX="19.0" layoutY="554.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #588C7E;" text="Retour" textFill="#fffefe" />
+      <Button layoutX="728.0" layoutY="19.0" mnemonicParsing="false" onAction="#trieprix" style="-fx-background-color: #588C7E;" text="Prix_desc" textFill="WHITE" />
+      <Button layoutX="820.0" layoutY="19.0" mnemonicParsing="false" onAction="#trienom" style="-fx-background-color: #588C7E;" text="Nom_ASC" textFill="WHITE" />
    </children>
 </AnchorPane>

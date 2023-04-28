@@ -235,4 +235,5 @@ public class AffichageCategorieController implements Initializable {
                     System.out.println(ex.getMessage());
                 };
     }
+
 }

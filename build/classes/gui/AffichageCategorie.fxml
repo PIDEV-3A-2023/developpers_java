@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageCategorieController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageCategorieController">
    <children>
-      <Text fill="#588c7e" layoutX="214.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des categorie">
+      <Text fill="#588c7e" layoutX="369.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des categorie">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <TableView fx:id="tableView" layoutX="33.0" layoutY="80.0" prefHeight="262.0" prefWidth="527.0">
+      <TableView fx:id="tableView" layoutX="33.0" layoutY="93.0" prefHeight="435.0" prefWidth="844.0">
         <columns>
           <TableColumn fx:id="ColID" prefWidth="42.3333740234375" text="ID" />
           <TableColumn fx:id="ColDate" prefWidth="96.0" text="Date creation " />
@@ -24,9 +24,9 @@
             <TableColumn fx:id="ColDesc" prefWidth="162.0" text="Description " />
         </columns>
       </TableView>
-      <Button layoutX="512.0" layoutY="358.0" mnemonicParsing="false" onAction="#AjouterCat" prefHeight="28.0" prefWidth="64.0" style="-fx-background-color: #588C7E;" text="Ajouter " textFill="WHITE" />
-      <Button layoutX="478.0" layoutY="15.0" mnemonicParsing="false" onAction="#listProd" style="-fx-background-color: #588C7E;" text="Liste des Produit " textFill="#fffdfd" />
-      <ImageView fx:id="logo" fitHeight="39.0" fitWidth="56.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="812.0" layoutY="542.0" mnemonicParsing="false" onAction="#AjouterCat" prefHeight="28.0" prefWidth="64.0" style="-fx-background-color: #588C7E;" text="Ajouter " textFill="WHITE" />
+      <Button layoutX="768.0" layoutY="17.0" mnemonicParsing="false" onAction="#listProd" style="-fx-background-color: #588C7E;" text="Liste des Produit " textFill="#fffdfd" />
+      <ImageView fx:id="logo" fitHeight="48.0" fitWidth="56.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../utils/logo%20.png" />
          </image>

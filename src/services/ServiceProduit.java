@@ -68,12 +68,47 @@ ObservableList<Produit>obListProd = FXCollections.observableArrayList();
                 int id= rs.getInt("id");
                 String nom_p = rs.getString("nom_p");
                 String image_p = rs.getString("image_p");
+                String imageQR = rs.getString("image_qr_code");
                 double prix_p = rs.getDouble("prix_p");
                 int stock = rs.getInt("stock");
                 String description = rs.getString("description_p");
                 int idcat_p_id = rs.getInt("idcat_p_id");
                 
-                Produit p = new Produit(id,nom_p,image_p,"null",description,prix_p,stock,idcat_p_id);
+                Produit p = new Produit(id,nom_p,image_p,imageQR,description,prix_p,stock,idcat_p_id);
+              
+                obListProd.add(p);
+
+              
+            }   
+            
+            
+            
+        }catch(Exception ex) {
+            System.out.println("exception ="+ex.getMessage() );
+        }
+        return obListProd ;
+    }
+     @Override
+    public ObservableList<Produit> affichageProduitTrieerNom() {
+      String req= "SELECT * FROM produit order by nom_p ASC";
+         List<Produit>listProd = new ArrayList<>();
+        
+        
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(req);
+            
+            while(rs.next()) {
+                int id= rs.getInt("id");
+                String nom_p = rs.getString("nom_p");
+                String image_p = rs.getString("image_p");
+                String imageQR = rs.getString("image_qr_code");
+                double prix_p = rs.getDouble("prix_p");
+                int stock = rs.getInt("stock");
+                String description = rs.getString("description_p");
+                int idcat_p_id = rs.getInt("idcat_p_id");
+                
+                Produit p = new Produit(id,nom_p,image_p,imageQR,description,prix_p,stock,idcat_p_id);
               
                 obListProd.add(p);
 
@@ -98,16 +133,19 @@ ObservableList<Produit>obListProd = FXCollections.observableArrayList();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(req);
             
+           
             while(rs.next()) {
                 int id= rs.getInt("id");
                 String nom_p = rs.getString("nom_p");
                 String image_p = rs.getString("image_p");
+                 String image_qr_code = rs.getString("image_qr_code");
+
                 double prix_p = rs.getDouble("prix_p");
                 int stock = rs.getInt("stock");
                 String description = rs.getString("description_p");
                 int idcat_p_id = rs.getInt("idcat_p_id");
                 
-                Produit p = new Produit(id,nom_p,image_p,"null",description,prix_p,stock,idcat_p_id);
+                Produit p = new Produit(id,nom_p,image_p,image_qr_code,description,prix_p,stock,idcat_p_id);
               
                 obListProd.add(p);
 
@@ -188,6 +226,8 @@ ObservableList<Produit>obListProd = FXCollections.observableArrayList();
        }
                    return count>0;//  0 > 0 : false 
     }
+
+   
 
   
     
