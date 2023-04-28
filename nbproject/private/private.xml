@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
         <file>
             <url>src/services/ServiceProduit.java</url>
@@ -15,6 +16,14 @@
             <file>file:/C:/Users/anest/OneDrive/Bureau/CommandePanier/src/gui/HistoriqueCommandeController.java</file>
             <file>file:/C:/Users/anest/OneDrive/Bureau/CommandePanier/src/entites/Commande.java</file>
             <file>file:/C:/Users/anest/OneDrive/Bureau/CommandePanier/src/gui/HistoriqueCommande.fxml</file>
+=======
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/anest/Downloads/Projet%20(1)/Projet%20(1)/Proje/src/projet/Projet.java</file>
+            <file>file:/C:/Users/anest/Downloads/Projet%20(1)/Projet%20(1)/Proje/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/anest/Downloads/Projet%20(1)/Projet%20(1)/Proje/src/Entities/Commande.java</file>
+>>>>>>> f2a49181ea719d5e7d3d646b4a933b7bc5e8371b
         </group>
     </open-files>
 </project-private>

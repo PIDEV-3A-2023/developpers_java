@@ -1,15 +1,15 @@
-package services;
-import entites.Panier;
-import entites.Commande;
-import java.util.List;
+
+package Services;
+
+import Entities.Commande;
+import java.sql.SQLException;
 import javafx.collections.ObservableList;
-/**
- *
- * @author oumeima
- */
-public interface IServiceCommande<T> {
+
+
+public interface IServiceCommande {
     
-    public ObservableList<Commande> AfficherCommande();
-    public void passerCommande(int id_pan, String nom,Double prix,String adresse,String mail);
-    public int GetLastPanier() ;
+    public void AjouterCommande(Commande c);
+    public ObservableList<Commande>AfficherCommande();
+    public void supprimercommande(int id);
+    public void ModifierCommande(Commande c);
 }

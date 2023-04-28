@@ -13,7 +13,11 @@
             </extension>
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>CommandePanier</name>
+=======
+            <name>Projet</name>
+>>>>>>> f2a49181ea719d5e7d3d646b4a933b7bc5e8371b
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

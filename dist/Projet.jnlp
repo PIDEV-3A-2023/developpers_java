@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Projet.jnlp">
+  <information>
+    <title>Projet</title>
+    <vendor>User</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Projet.jar" size="27444" download="eager" />
+    <jar href="lib\annotations-20.1.0.jar" size="26211" download="eager" />
+    <jar href="lib\javafx-base-16-win.jar" size="745740" download="eager" />
+    <jar href="lib\javafx-base-16.jar" size="302" download="eager" />
+    <jar href="lib\javafx-controls-16-win.jar" size="2530159" download="eager" />
+    <jar href="lib\javafx-controls-16.jar" size="306" download="eager" />
+    <jar href="lib\javafx-fxml-16-win.jar" size="128845" download="eager" />
+    <jar href="lib\javafx-fxml-16.jar" size="302" download="eager" />
+    <jar href="lib\javafx-graphics-16-win.jar" size="5816515" download="eager" />
+    <jar href="lib\javafx-graphics-16.jar" size="306" download="eager" />
+    <jar href="lib\javax.mail-1.6.1.jar" size="654100" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.22.jar" size="2389216" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Projet" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="projet.Projet"  name="Projet" />
+  <update check="always"/>
+</jnlp>
