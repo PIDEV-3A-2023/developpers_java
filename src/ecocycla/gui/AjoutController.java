@@ -68,7 +68,7 @@ public class AjoutController implements Initializable {
           else {
              
                   UserCrud us = new UserCrud();
-                  User p = new User(email, role, nom, prenom, datenaisssance, 0, region, ville, adresse);
+                  User p = new User(email, role, motdepasse, nom, prenom, datenaisssance, 0, region, ville, adresse);
                   us.createUser(p);
                   Alert a = new Alert(Alert.AlertType.INFORMATION, "Utilisateur ajouté(e) avec succes !", ButtonType.OK);
                   a.showAndWait();

@@ -5,15 +5,19 @@
  */
 package ecocycla.entities;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
  *
  * @author KHALED
  */
-
 public class User {
+
     private int id;
     private String email;
     private String roles;
@@ -26,13 +30,19 @@ public class User {
     private String region;
     private String ville;
     private String adresse;
+    public static User Current_User;
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String email, String roles, String nom, String prenom, LocalDate datenaissance, int cin, String region, String ville, String adresse) {
         this.email = email;
         this.roles = roles;
         this.nom = nom;
         this.prenom = prenom;
-        
+
         this.datenaissance = datenaissance;
         this.cin = cin;
         this.region = region;
@@ -40,14 +50,27 @@ public class User {
         this.adresse = adresse;
     }
 
+    public User(int id, String email, String roles, String nom, String prenom, int cin, String region, String ville, String adresse) {
+        this.id = id;
+        this.email = email;
+        this.roles = roles;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.region = region;
+        this.ville = ville;
+        this.adresse = adresse;
+    }
+
     
-    public User(String email, String roles, String password, String nom, String prenom, String photo, LocalDate datenaissance, int cin, String region, String ville, String adresse) {
+
+    public User(String email, String roles, String password, String nom, String prenom, LocalDate datenaissance, int cin, String region, String ville, String adresse) {
         this.email = email;
         this.roles = roles;
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
-        this.photo = photo;
+
         this.datenaissance = datenaissance;
         this.cin = cin;
         this.region = region;
@@ -67,15 +90,25 @@ public class User {
         this.ville = ville;
         this.adresse = adresse;
     }
-    
-    
-    public User(int id, String email,String roles, String password, String nom, String prenom, 
-                String photo, LocalDate datenaissance, int cin, String region, String ville, String adresse) {
+
+    public User(TextField email, TextField nom, TextField prenom, TextField datenaissance, int cin, TextField region, TextField ville, TextField adresse) {
+
+        this.email = email.getText();
+        this.cin=cin; 
+        this.nom = nom.getText();
+        this.prenom = prenom.getText();
+        this.datenaissance = LocalDate.parse(datenaissance.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.region = region.getText();
+        this.ville = ville.getText();
+        this.adresse = adresse.getText();
+    }
+
+    public User(int id, String email, String roles, String password, String nom, String prenom,
+            String photo, LocalDate datenaissance, int cin, String region, String ville, String adresse) {
         this.id = id;
         this.email = email;
         this.roles = roles;
-        
-        this.password = password;
+        this.password = (hashMotDePasse(password));
         this.nom = nom;
         this.prenom = prenom;
         this.photo = photo;
@@ -86,19 +119,65 @@ public class User {
         this.adresse = adresse;
     }
 
-    public User() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User(int id, TextField email, TextField role, TextField nom, TextField prenom, TextField datenaissance, int i, TextField region, TextField ville, TextField adresse) {
+        this.id = id;
+        this.email = email.getText();
+        this.roles = role.getText();
+
+        this.nom = nom.getText();
+        this.prenom = prenom.getText();
+        this.datenaissance = LocalDate.parse(datenaissance.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.region = region.getText();
+        this.ville = ville.getText();
+        this.adresse = adresse.getText();
+
     }
 
-    public User(TextField email, TextField role, TextField nom, TextField prenom, LocalDate MIN, int i, TextField region, TextField ville, TextField adresse) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User(TextField email, TextField role, PasswordField motdepasse, TextField nom, TextField prenom, TextField datenaissance, int i, TextField region, TextField ville, TextField adresse) {
+        this.email = email.getText();
+        this.roles = role.getText();
+        this.password = (hashMotDePasse(motdepasse.getText()));
+        this.nom = nom.getText();
+        this.prenom = prenom.getText();
+        this.datenaissance = LocalDate.parse(datenaissance.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.region = region.getText();
+        this.ville = ville.getText();
+        this.adresse = adresse.getText();
+
     }
 
-    public User(TextField email, TextField role, TextField nom, TextField prenom, TextField datenaisssance, int i, TextField region, TextField ville, TextField adresse) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static User getCurrent_User() {
+        return Current_User;
     }
 
+    public static void setCurrent_User(User Current_User) {
+        User.Current_User = Current_User;
+    }
+
+    public User(TextField email, PasswordField mdp, TextField nom, TextField prenom, TextField datedenaissance, int i, TextField region, TextField ville, TextField adresse) {
+        this.email = email.getText();
+       
+        this.password =(hashMotDePasse(mdp.getText()));
+        this.nom = nom.getText();
+        this.prenom = prenom.getText();
+        this.datenaissance = LocalDate.parse(datedenaissance.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.region = region.getText();
+        this.ville = ville.getText();
+        this.adresse = adresse.getText();
+//To change body of generated methods, choose Tools | Templates.
+    }
+
+    public User(int userId, String useremail, String req, String userprenom, String userPassword) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public User(String email) {
+        this.email = email;
+    }
+
+    public User() {
+       
+    }
 
     public int getId() {
         return id;
@@ -120,7 +199,7 @@ public class User {
         return roles;
     }
 
-    public void setRoles (String roles) {
+    public void setRoles(String roles) {
         this.roles = roles;
     }
 
@@ -199,5 +278,19 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", email=" + email + ", roles=" + roles + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + ", photo=" + photo + ", datenaissance=" + datenaissance + ", cin=" + cin + ", region=" + region + ", ville=" + ville + ", adresse=" + adresse + '}';
+    }
+    
+    public String hashMotDePasse(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -9,20 +9,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="731.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="ecocycla.gui.ModifierController">
    <children>
-      <TextField layoutX="14.0" layoutY="326.0" prefHeight="26.0" prefWidth="250.0" promptText="ville" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="14.0" layoutY="150.0" prefHeight="26.0" prefWidth="250.0" promptText="nom" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="467.0" layoutY="150.0" prefHeight="26.0" prefWidth="250.0" promptText="prenom" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="467.0" layoutY="209.0" prefHeight="26.0" prefWidth="250.0" promptText="cin" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="467.0" layoutY="266.0" prefHeight="26.0" prefWidth="250.0" promptText="role" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="467.0" layoutY="326.0" prefHeight="26.0" prefWidth="250.0" promptText="region" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="250.0" promptText="date de naissance " styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="14.0" layoutY="209.0" prefHeight="26.0" prefWidth="250.0" promptText="email" styleClass="textfield-design" stylesheets="@design.css" />
-      <TextField layoutX="467.0" layoutY="377.0" prefHeight="26.0" prefWidth="250.0" promptText="adresse" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="ville" layoutX="14.0" layoutY="326.0" prefHeight="26.0" prefWidth="250.0" promptText="ville" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="nom" layoutX="14.0" layoutY="150.0" prefHeight="26.0" prefWidth="250.0" promptText="nom" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="prenom" layoutX="467.0" layoutY="150.0" prefHeight="26.0" prefWidth="250.0" promptText="prenom" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="cin" layoutX="467.0" layoutY="209.0" prefHeight="26.0" prefWidth="250.0" promptText="cin" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="role" layoutX="467.0" layoutY="266.0" prefHeight="26.0" prefWidth="250.0" promptText="role" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="region" layoutX="467.0" layoutY="326.0" prefHeight="26.0" prefWidth="250.0" promptText="region" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="datenaissance" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="250.0" promptText="date de naissance " styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="email" layoutX="14.0" layoutY="209.0" prefHeight="26.0" prefWidth="250.0" promptText="email" styleClass="textfield-design" stylesheets="@design.css" />
+      <TextField fx:id="adresse" layoutX="467.0" layoutY="377.0" prefHeight="26.0" prefWidth="250.0" promptText="adresse" styleClass="textfield-design" stylesheets="@design.css" />
       <Label layoutX="261.0" layoutY="51.0" text="Modifier utilisateur" textFill="#145944">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="223.0" layoutY="430.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" styleClass="button-design" stylesheets="@design.css" text="Modifier" />
+      <Button fx:id="btnmodifier" layoutX="223.0" layoutY="430.0" mnemonicParsing="false" onAction="#modifier" prefHeight="45.0" prefWidth="220.0" styleClass="button-design" stylesheets="@design.css" text="Modifier" />
    </children>
 </AnchorPane>

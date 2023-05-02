@@ -23,21 +23,24 @@ import javafx.stage.Stage;
  * @author KHALED
  */
 public class Admin extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml")) ;
-            
+           Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml")) ;
+            //Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+            ///Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml")) ;
+          // Parent root = FXMLLoader.load(getClass().getResource("Changermdp.fxml"));
             Scene scene = new Scene(root);
-            
+
             primaryStage.setTitle("Listes des Utilisateurs ");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
 
     /**
@@ -46,5 +49,5 @@ public class Admin extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

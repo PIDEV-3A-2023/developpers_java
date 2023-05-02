@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="ecocycla.gui.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecocycla.gui.LoginController">
    <children>
       <TextField fx:id="email" layoutX="73.0" layoutY="143.0" prefHeight="26.0" prefWidth="450.0" promptText="email" styleClass="textfield-design" stylesheets="@design.css" />
       <PasswordField fx:id="mdp" layoutX="74.0" layoutY="209.0" prefHeight="26.0" prefWidth="450.0" promptText="mot de passe " styleClass="textfield-design" stylesheets="@design.css" />
-      <Button fx:id="btnseconnecter" layoutX="189.0" layoutY="278.0" mnemonicParsing="false" onAction="#btnconnexion" prefHeight="36.0" prefWidth="206.0" styleClass="button-design" stylesheets="@design.css" text="se connecter" />
+      <Button fx:id="btnseconnecter" layoutX="81.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnconnexion" prefHeight="36.0" prefWidth="206.0" styleClass="button-design" stylesheets="@design.css" text="se connecter" />
       <Label layoutX="226.0" layoutY="47.0" text="CONNEXION">
          <font>
             <Font size="25.0" />
@@ -23,5 +22,7 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Button fx:id="btnseconnecter1" layoutX="195.0" layoutY="342.0" mnemonicParsing="false" onAction="#inscrit" prefHeight="36.0" prefWidth="206.0" styleClass="button-design" stylesheets="@design.css" text="Créer un compte " />
+      <Button fx:id="btnf" layoutX="388.0" layoutY="268.0" mnemonicParsing="false" onAction="#Forgotpass" styleClass="textfield-design" stylesheets="@design.css" text="mot de passe oubliée?" />
    </children>
 </AnchorPane>

@@ -4,11 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="841.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="ecocycla.gui.AdminController">
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecocycla.gui.AdminController">
    <children>
       <TableView fx:id="tableviewUser" layoutX="10.0" layoutY="121.0" prefHeight="266.0" prefWidth="821.0">
         <columns>
@@ -36,5 +36,8 @@
          </font>
       </Label>
       <Button fx:id="fxrefrech" layoutX="26.0" layoutY="41.0" mnemonicParsing="false" onAction="#showRec" prefHeight="26.0" prefWidth="110.0" styleClass="button-design" stylesheets="@design.css" text="Actualiser " />
+      <TextField fx:id="searchField" layoutX="557.0" layoutY="42.0" promptText="rechercher utilisateur" />
+      <Button fx:id="searchbtn" layoutX="738.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnSearch" text="rechercher" />
+      
    </children>
 </AnchorPane>

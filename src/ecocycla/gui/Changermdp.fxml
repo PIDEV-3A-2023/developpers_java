@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="ecocycla.gui.ChangermdpController">
+   <children>
+      <Label layoutX="126.0" layoutY="28.0" text="Entrez la nouvelle mot de passe">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="codeField" layoutX="156.0" layoutY="105.0" prefHeight="26.0" prefWidth="288.0" promptText="veuillez entrer le code envoyé a votre email" />
+      <TextField fx:id="newPasswordField" layoutX="156.0" layoutY="173.0" prefHeight="26.0" prefWidth="288.0" promptText="veuillez entrer la nouvelle mot de passe" />
+      <TextField fx:id="confirmNewPasswordField" layoutX="156.0" layoutY="245.0" prefHeight="26.0" prefWidth="288.0" promptText="veuillez confirmer la nouvelle mot de passe" />
+      <Button fx:id="btnvalider" layoutX="236.0" layoutY="320.0" mnemonicParsing="false" onAction="#valider" prefHeight="26.0" prefWidth="128.0" text="Valider" />
+   </children>
+</AnchorPane>
